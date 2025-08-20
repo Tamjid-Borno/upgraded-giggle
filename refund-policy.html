@@ -2,22 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Refund Policy</title>
+  <title>CreatorFlow – Refund Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="CreatorFlow refund policy: 14-day refunds, how to request a refund, renewals, and Paddle payment handling.">
   <style>
-    body {
-      background-color: #0b0114;
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
-      padding: 40px;
+    :root{
+      --bg:#0b0114; --card:#150424; --fg:#ffffff; --muted:#cbb6da; 
+      --border:#3a2750; --accent:#a83dd5; --accent-2:#7a24a5; --radius:16px;
     }
-    h1 {
-      color: #a83dd5;
+    *{box-sizing:border-box}
+    body{
+      margin:0; background: radial-gradient(1200px 600px at 15% -10%, #24083f 0%, transparent 60%),
+                   radial-gradient(1000px 600px at 90% 10%, #1e0734 0%, transparent 55%),
+                   var(--bg);
+      color:var(--fg); font:16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      padding: 24px;
     }
+    .wrap{max-width:900px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+    nav a{color:#fff;text-decoration:none;opacity:.9;margin-left:14px}
+    nav a:hover, nav a:focus{color:var(--accent)}
+    h1{color:var(--accent); font-size:clamp(1.6rem, 2.8vw, 2.2rem); margin:8px 0 6px}
+    p.lead{opacity:.92; margin:0 0 14px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--card);
+      border:1px solid var(--border); border-radius:var(--radius);
+      padding: clamp(16px, 2.4vw, 22px); margin: 14px 0;
+    }
+    h2{font-size:clamp(1.05rem, 2vw, 1.2rem); color:#ead9f7; margin:0 0 8px}
+    ul{margin:8px 0 0 18px}
+    li+li{margin-top:6px}
+    a{color:var(--accent); text-decoration: underline}
+    .note{opacity:.9; font-size:.95rem}
+    footer{opacity:.8; font-size:.95rem; margin:18px 0 6px}
+    @media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto} }
   </style>
 </head>
 <body>
-  <h1>Refund Policy</h1>
-  <p>We want you to be satisfied with your purchase. If you're not happy within the first 7 days of your subscription, you can request a full refund.</p>
-  <p>To request a refund, contact us at <a href="mailto:contact@creatorflow.ai">contact@creatorflow.ai</a> with your order details.</p>
+  <div class="wrap">
+    <header>
+      <div><strong>CreatorFlow</strong></div>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms-and-conditions.html">Terms</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Refund Policy</h1>
+      <p class="lead">We want you to love CreatorFlow. If not, we offer a straightforward refund window and clear steps to request one.</p>
+
+      <section class="card" aria-labelledby="window">
+        <h2 id="window">Refund Window</h2>
+        <ul>
+          <li><strong>14-day refunds:</strong> You may request a refund within <strong>14 days</strong> of your initial purchase or subscription renewal.</li>
+          <li>Refunds apply to subscription charges. Taxes and fees are handled by Paddle according to their policies.</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="eligibility">
+        <h2 id="eligibility">Eligibility</h2>
+        <ul>
+          <li>Available on first purchases and renewals made in the last 14 days.</li>
+          <li>Does not cover misuse, abuse, or activity that violates our <a href="terms-and-conditions.html">Terms</a>.</li>
+          <li>One refund per billing cycle per account, unless required by law.</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="howto">
+        <h2 id="howto">How to Request a Refund</h2>
+        <ul>
+          <li>Email us at <a href="mailto:contact@creatorflow.ai">contact@creatorflow.ai</a> with your <strong>order ID</strong> and a short note. (You’ll find the order ID in your Paddle receipt.)</li>
+          <li>Refunds are processed via <strong>Paddle</strong> (our Merchant of Record) back to your original payment method. Bank processing times may vary.</li>
+        </ul>
+        <p class="note">Need help locating your receipt or order ID? Just write to us and we’ll assist.</p>
+      </section>
+
+      <section class="card" aria-labelledby="renewals">
+        <h2 id="renewals">Cancellations & Renewals</h2>
+        <ul>
+          <li>Subscriptions are billed <strong>monthly</strong> and <strong>auto-renew</strong> until cancelled. You can cancel any time before the next renewal to avoid future charges.</li>
+          <li>Cancelling stops future renewals; it doesn’t automatically trigger a refund for past charges. If you’re within 14 days of a charge, request a refund as above.</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="payments">
+        <h2 id="payments">Payments & Merchant of Record</h2>
+        <p>Payments, invoicing, taxes, and refunds are handled securely by <strong>Paddle</strong>, our Merchant of Record. Paddle may provide additional guidance to complete your refund where required.</p>
+      </section>
+
+      <p class="note">For details on how we handle your data, see our <a href="privacy.html">Privacy Policy</a>. For acceptable use and subscription terms, see our <a href="terms-and-conditions.html">Terms &amp; Conditions</a>.</p>
+
+      <footer>
+        © <span id="yr"></span> CreatorFlow. All rights reserved.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
