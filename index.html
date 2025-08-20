@@ -3,42 +3,120 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CreatorFlow – Coming Soon</title>
+  <title>CreatorFlow – AI scripts for Reels, TikTok & Shorts</title>
+  <meta name="description" content="CreatorFlow helps creators generate short-form video scripts in seconds. Clear pricing, refund & privacy. Paddle checkout.">
   <style>
+    :root{
+      --bg:#0b0114; --fg:#ffffff; --accent:#a83dd5; --muted:#cbb6da33; --card:#150424;
+    }
+    *{box-sizing:border-box}
     body {
-      background-color: #0b0114;
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       margin: 0;
-      text-align: center;
+      line-height: 1.6;
     }
-    h1 {
-      font-size: 2.5em;
-      color: #a83dd5;
+    header {
+      max-width: 1100px; margin: 0 auto; padding: 20px 16px; display:flex; align-items:center; justify-content:space-between;
     }
-    p {
-      max-width: 600px;
-      font-size: 1.1em;
+    nav a { color: var(--fg); text-decoration: none; margin-left: 16px; opacity:.9 }
+    nav a:hover{ color: var(--accent) }
+    .hero {
+      max-width: 1100px; margin: 0 auto; padding: 64px 16px 32px;
+      display:grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items:center;
     }
-    a {
-      color: #a83dd5;
-      text-decoration: underline;
-      margin-top: 20px;
+    h1 { font-size: clamp(2rem, 2.8rem, 3.2rem); color: var(--accent); margin:0 0 12px}
+    .card {
+      background: var(--card); border: 1px solid var(--muted); border-radius: 16px; padding: 18px;
     }
+    .btn {
+      display:inline-block; padding:12px 18px; border-radius:12px; border:1px solid var(--accent);
+      color:#fff; text-decoration:none; background: linear-gradient(90deg, #7a24a5, #a83dd5);
+    }
+    .btn.secondary { background: transparent; border-color:#6b4f7d }
+    section { max-width:1100px; margin: 0 auto; padding: 24px 16px 8px }
+    h2 { color:#e9d9f6; margin: 8px 0 6px; }
+    .grid { display:grid; gap:16px }
+    @media(min-width:900px){ .grid.cols-3{ grid-template-columns: repeat(3, 1fr) } }
+    footer { border-top:1px solid var(--muted); margin-top:32px; }
+    footer .inner { max-width:1100px; margin:0 auto; padding:20px 16px; display:flex; gap:16px; flex-wrap:wrap; }
+    small { opacity:.8 }
+    ul.clean { list-style:none; padding:0; margin:0 }
+    li + li { margin-top: 6px; }
   </style>
 </head>
 <body>
-  <h1>CreatorFlow – Coming Soon</h1>
-  <p>
-    CreatorFlow is an AI-powered micro SaaS platform that uses the DeepSeek API to help content creators
-    instantly generate short-form video scripts for Instagram Reels, TikTok, and YouTube Shorts. 
-    We’re launching soon with a subscription-based tool to make your content workflow fast and effortless.
-  </p>
-  <a href="terms-and-conditions.html">Terms & Conditions</a>
+  <header>
+    <div><strong>CreatorFlow</strong></div>
+    <nav aria-label="primary">
+      <a href="pricing.html">Pricing</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refund-policy.html">Refunds</a>
+      <a href="terms-and-conditions.html">Terms</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>AI-powered short-form scriptwriter for creators</h1>
+        <p>
+          CreatorFlow is a micro-SaaS that uses the DeepSeek API to instantly generate
+          concise scripts for Instagram Reels, TikTok, and YouTube Shorts. Save hours brainstorming,
+          and publish more consistently.
+        </p>
+        <p>
+          <a class="btn" href="checkout.html">Subscribe & Start Writing</a>
+          <a class="btn secondary" href="pricing.html" style="margin-left:8px">See Pricing</a>
+        </p>
+        <p><small>Payments handled by Paddle (Merchant of Record). Taxes & invoicing included.</small></p>
+      </div>
+      <div class="card">
+        <strong>How it works (overview)</strong>
+        <ul class="clean">
+          <li>1) Choose a goal (educate, entertain, promote).</li>
+          <li>2) Paste a topic or keywords (e.g., “5 beginner Lightroom tips”).</li>
+          <li>3) Pick platform & tone; set duration (15–60s).</li>
+          <li>4) Generate a ready-to-read script with hooks, beats & CTA.</li>
+        </ul>
+        <p style="margin:10px 0 0"><small>Where checkout lives: <a href="checkout.html">/checkout.html</a></small></p>
+      </div>
+    </section>
+
+    <section>
+      <h2>More details: how CreatorFlow works</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <strong>Inputs</strong>
+          <p>Topic/keywords, target platform, tone/style, target length, and optional brand voice.</p>
+        </div>
+        <div class="card">
+          <strong>Output</strong>
+          <p>A script with hook → body beats → CTA, plus suggested captions and 3–5 relevant hashtags.</p>
+        </div>
+        <div class="card">
+          <strong>Credits</strong>
+          <p>Each generation uses <em>1 credit</em>. See <a href="pricing.html">Pricing</a> for monthly credit amounts and billing period.</p>
+        </div>
+      </div>
+      <p class="card" style="margin-top:16px">
+        <strong>Roadmap / development status:</strong> We’re actively developing CreatorFlow with
+        new prompt templates, scheduling exports, and team seats. This site will be updated as features roll out.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="inner">
+      <small>© <span id="yr"></span> CreatorFlow. All rights reserved.</small>
+      <small>Support: <a href="mailto:support@creatorflow.app">support@creatorflow.app</a></small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
