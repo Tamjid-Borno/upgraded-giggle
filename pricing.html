@@ -3,62 +3,181 @@
 <head>
   <meta charset="UTF-8" />
   <title>Pricing – CreatorFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="CreatorFlow pricing. Monthly billing, clear credit system, Paddle checkout.">
   <style>
-    body {
-      background: #0b0114;
-      color: #ffffff;
-      font-family: 'Segoe UI', sans-serif;
-      padding: 50px;
-      text-align: center;
+    /* ---------- Theme ---------- */
+    :root{
+      --bg:#0b0114; --card:#120322; --card-2:#1a0730; --fg:#ffffff; --muted:#bfa6cf; 
+      --border:#311647; --accent:#a83dd5; --accent-2:#7a24a5; --ok:#69e2a3;
+      --shadow: 0 10px 30px rgba(168,61,213,.18), 0 2px 10px rgba(0,0,0,.25);
+      --radius: 16px;
     }
-    h1 {
-      color: #a83dd5;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: radial-gradient(1200px 600px at 15% -10%, #24083f 0%, transparent 60%),
+                     radial-gradient(1000px 600px at 90% 10%, #1e0734 0%, transparent 55%),
+                     var(--bg);
+      color:var(--fg); font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-    .plan {
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid #444;
-      width: 300px;
-      border-radius: 10px;
+    a{color:var(--accent)}
+    .container{max-width:1100px;margin:0 auto;padding: clamp(16px, 2vw, 24px)}
+    /* ---------- Header ---------- */
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:8px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
+    .dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,var(--accent-2),var(--accent))}
+    nav a{color:#fff;text-decoration:none;opacity:.9;margin-left:14px}
+    nav a:hover, nav a:focus{color:var(--accent)}
+    /* ---------- Hero ---------- */
+    .hero{padding: clamp(14px, 2vw, 24px) 0 8px;text-align:center}
+    h1{font-size: clamp(1.6rem, 2.6vw, 2.4rem); margin:0 0 6px;color:var(--accent)}
+    .lead{opacity:.9; max-width:820px; margin: 0 auto}
+    /* ---------- Notice ---------- */
+    .notice{
+      margin: 22px auto; padding:18px; background:linear-gradient(180deg, var(--card), var(--card-2));
+      border:1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
     }
-    .plan-title {
-      font-weight: bold;
-      font-size: 1.2em;
+    .notice h2{margin:0 0 8px;font-size: clamp(1.05rem, 1.8vw, 1.15rem); color:#ead9f7}
+    .notice ul{margin:0;padding-left:18px}
+    .notice li+li{margin-top:6px}
+    /* ---------- Plans ---------- */
+    .plans{
+      display:grid; gap: clamp(14px, 2vw, 18px); 
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      margin-top: clamp(10px, 2vw, 16px);
     }
-    .price {
-      font-size: 1.5em;
-      color: #a83dd5;
+    @media (min-width:760px){ .plans{ grid-template-columns: repeat(2, 1fr);} }
+    @media (min-width:1040px){ .plans{ grid-template-columns: repeat(3, 1fr);} }
+    .plan{
+      position:relative; overflow:hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--card);
+      border:1px solid var(--border); border-radius: var(--radius); padding:20px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    .plan:focus-within, .plan:hover{ transform: translateY(-4px); box-shadow: var(--shadow); border-color: #52286f }
+    .badge{
+      position:absolute; top:12px; right:12px; font-size:.75rem; letter-spacing:.3px;
+      background:linear-gradient(90deg,#3dd5b9,#5ad8ff); color:#0b1220; padding:6px 8px; border-radius:999px; font-weight:700;
+    }
+    .plan-title{font-weight:800; font-size: clamp(1.1rem, 2vw, 1.25rem)}
+    .price{font-size: clamp(1.4rem, 2.6vw, 1.8rem); color:var(--accent); margin: 6px 0 2px}
+    .period{font-size:.95em; opacity:.85; margin-bottom: 8px}
+    .plan ul{padding-left:18px;margin:10px 0}
+    .plan li+li{margin-top:6px}
+    .cta{
+      display:inline-block; padding:12px 16px; border-radius:12px; border:1px solid var(--accent);
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      color:#fff; text-decoration:none; font-weight:700; letter-spacing:.2px;
+    }
+    .cta:focus{outline:2px solid #fff; outline-offset:3px}
+    /* ---------- Links & Footer ---------- */
+    .links{ text-align:center; margin-top: 22px; opacity:.95 }
+    .links a{ text-decoration: underline; margin: 0 8px }
+    footer{ text-align:center; margin: 24px 0 10px; opacity:.8; font-size:.95rem }
+    /* ---------- Motion preferences ---------- */
+    @media (prefers-reduced-motion: reduce){
+      .plan, .cta{ transition:none }
     }
   </style>
 </head>
 <body>
-  <h1>Pricing</h1>
-  <div class="plan">
-    <div class="plan-title">Starter</div>
-    <div class="price">$0.00</div>
-    <p> 50 AI credits included.</p>
-    <p> Scripts usable for professional purpose.</p>
-    <p>Credits do NOT auto-reload when 0</p>
-    <p>Slowest generation speed</p>
-    <p>No priority support</p>
+  <div class="container">
+    <header>
+      <div class="brand"><span class="dot" aria-hidden="true"></span> CreatorFlow</div>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="refund-policy.html">Refunds</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms-and-conditions.html">Terms</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Pricing</h1>
+      <p class="lead">
+        Transparent monthly plans with a clear credit system. Payments & taxes handled securely by <strong>Paddle</strong> (Merchant of Record).
+      </p>
+    </section>
+
+    <!-- This block answers Paddle's "billing period + how credits work" requirement -->
+    <section class="notice" aria-labelledby="billing-credits">
+      <h2 id="billing-credits">Billing & Credit System</h2>
+      <ul>
+        <li><strong>Billing period:</strong> Paid plans are billed <u>monthly</u> and <u>auto-renew</u> until cancelled. Cancel any time before your next renewal to avoid future charges.</li>
+        <li><strong>What is a credit?</strong> <u>1 credit = 1 AI script generation</u> (short-form script up to ~250 words).</li>
+        <li><strong>Monthly reset:</strong> Your plan’s credits reset on your monthly billing date. <u>Unused credits do not roll over.</u></li>
+        <li><strong>Auto-reload (Pro & Premium):</strong> If your balance reaches 0, it <u>refills to your plan’s monthly credit amount after 24 hours</u> while your subscription is active. This does not change your billing date or price.</li>
+        <li><strong>Refunds:</strong> We follow a <u>14-day refund policy</u>. See our <a href="refund-policy.html">Refund Policy</a> for details.</li>
+      </ul>
+    </section>
+
+    <section class="plans" aria-label="Plans">
+      <!-- Starter -->
+      <article class="plan" tabindex="0">
+        <div class="plan-title">Starter</div>
+        <div class="price">$0.00</div>
+        <div class="period">Free plan • no billing</div>
+        <ul>
+          <li>50 credits included (one-time grant)</li>
+          <li>Scripts usable for professional purposes</li>
+          <li><strong>No</strong> auto-reload when 0</li>
+          <li>Slowest generation speed</li>
+          <li>Email support only</li>
+        </ul>
+        <a class="cta" href="checkout.html#starter" aria-label="Choose Starter on Checkout page">Get Started</a>
+      </article>
+
+      <!-- Pro -->
+      <article class="plan" tabindex="0">
+        <div class="badge" aria-label="Most popular">POPULAR</div>
+        <div class="plan-title">Pro</div>
+        <div class="price">$4.75</div>
+        <div class="period">per month • auto-renews</div>
+        <ul>
+          <li>200 credits <strong>per month</strong></li>
+          <li>Scripts usable for professional purposes</li>
+          <li><strong>Auto-reload after 24h when 0</strong></li>
+          <li>Faster generation speed</li>
+          <li>Priority support</li>
+        </ul>
+        <a class="cta" href="checkout.html#pro" aria-label="Choose Pro on Checkout page">Choose Pro</a>
+      </article>
+
+      <!-- Premium -->
+      <article class="plan" tabindex="0">
+        <div class="plan-title">Premium</div>
+        <div class="price">$14.55</div>
+        <div class="period">per month • auto-renews</div>
+        <ul>
+          <li>1000 credits <strong>per month</strong></li>
+          <li>Scripts usable for professional purposes</li>
+          <li><strong>Auto-reload after 24h when 0</strong></li>
+          <li>Fastest generation speed</li>
+          <li>Dedicated premium support</li>
+        </ul>
+        <a class="cta" href="checkout.html#business" aria-label="Choose Premium on Checkout page">Choose Premium</a>
+      </article>
+    </section>
+
+    <div class="links">
+      <a href="checkout.html">Go to Checkout</a> •
+      <a href="refund-policy.html">Refund Policy</a> •
+      <a href="privacy.html">Privacy</a> •
+      <a href="terms-and-conditions.html">Terms</a>
+    </div>
+
+    <footer>
+      Prices in USD. Taxes & invoicing handled by Paddle. © <span id="yr"></span> CreatorFlow.
+    </footer>
   </div>
-  <div class="plan">
-    <div class="plan-title">Pro</div>
-    <div class="price">$4.75</div>
-    <p>✔ 200 AI credits included</p>
-<p>✔ Scripts usable for professional purpose</p>
-<p>✔ Credits auto-reload after 24h when 0</p>
-<p>✔ Faster generation speed</p>
-<p>✔ Priority support</p>
-  </div>
-    <div class="plan">
-    <div class="plan-title">Premium</div>
-    <div class="price">$14.55</div>
-    <p>1000 AI credits included </p>
-<p> Scripts usable for professional purpose</p>
-<p>✔ Credits auto-reload after 24h when 0</p>
-<p>✔  Fastest generation speed</p>
-<p>✔ Dedicated premium support</p>
-  </div>
+
+  <script>
+    // small nicety: current year + focus ring helper for keyboard users on cards
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
